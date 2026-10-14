@@ -13,11 +13,12 @@ jobs:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python-version }}
-      - run: pip install -e ".[dev]"
-      - run: ruff check src tests
-      - run: ruff format --check src tests
-      - run: pytest -q
-      - run: tickrisk demo --log runs.jsonl && tickrisk verify runs.jsonl && tickrisk replay runs.jsonl
+          enable-cache: true
+      - run: uv sync --locked --extra dev
+      - run: uv run ruff check src tests
+      - run: uv run ruff format --check src tests
+      - run: uv run pytest -q
+      - run: uv run tickrisk demo --log runs.jsonl && uv run tickrisk verify runs.jsonl && uv run tickrisk replay runs.jsonl
