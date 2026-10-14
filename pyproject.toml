@@ -16,6 +16,10 @@ classifiers = [
   "Intended Audience :: Financial and Insurance Industry",
   "Intended Audience :: Developers",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: Office/Business :: Financial :: Investment",
 ]
 dependencies = ["numpy>=1.24"]
@@ -32,6 +36,9 @@ Issues = "https://github.com/bajoski34/tickrisk/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/tickrisk"]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["docs/"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

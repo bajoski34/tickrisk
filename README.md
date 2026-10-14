@@ -1,5 +1,10 @@
 # tickrisk
 
+[![CI](https://github.com/bajoski34/tickrisk/actions/workflows/ci.yml/badge.svg)](https://github.com/bajoski34/tickrisk/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/tickrisk)](https://pypi.org/project/tickrisk/)
+[![Python](https://img.shields.io/pypi/pyversions/tickrisk)](https://pypi.org/project/tickrisk/)
+[![License](https://img.shields.io/pypi/l/tickrisk)](LICENSE)
+
 **Open-source, auditable pricing and risk for multi-asset books.**
 
 Price a portfolio of equities, options, bonds and FX forwards, then get Greeks, stress tests, Value at Risk and a P&L explain in your reporting currency. Every run is written to a tamper-evident log and can be replayed later to prove the numbers have not changed.
@@ -10,6 +15,8 @@ Built for emerging managers, family offices, fintech teams and quants who need i
 pip install tickrisk
 tickrisk demo
 ```
+
+![tickrisk stream repricing a book tick by tick and flagging limit breaches](https://raw.githubusercontent.com/bajoski34/tickrisk/main/docs/stream.gif)
 
 ## Why tickrisk
 

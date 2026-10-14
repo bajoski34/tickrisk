@@ -1,5 +1,7 @@
 """tickrisk: open-source, auditable pricing and risk for multi-asset books."""
 
+from importlib.metadata import PackageNotFoundError, version
+
 from .black_scholes import BSResult, implied_vol
 from .engine import Breach, Limit, ReplayResult, RiskEngine, TickUpdate, replay
 from .events import EventLog, IntegrityError, RunRecord
@@ -20,7 +22,10 @@ from .risk import (
     stress_test,
 )
 
-__version__ = "0.1.0"
+try:
+    __version__ = version("tickrisk")
+except PackageNotFoundError:  # running from a source checkout without installing
+    __version__ = "0.0.0+unknown"
 
 __all__ = [
     "STANDARD_SCENARIOS",
