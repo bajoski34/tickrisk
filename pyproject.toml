@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tickrisk"
+version = "0.1.0"
+description = "Open-source, auditable pricing and risk for multi-asset books: Greeks, VaR, stress tests, P&L explain and a tamper-evident run log."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{ name = "Abraham Olaobaju", email = "olaobajua@gmail.com" }]
+keywords = ["risk", "pricing", "var", "greeks", "black-scholes", "quant", "finance", "audit"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Financial and Insurance Industry",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+tickrisk = "tickrisk.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/bajoski34/tickrisk"
+Issues = "https://github.com/bajoski34/tickrisk/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tickrisk"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "RUF"]
+ignore = ["E731"]
